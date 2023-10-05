@@ -11,61 +11,37 @@ const bcrypt = require('bcrypt');
 // Import Project Modules
 
 const results = require('./results.json');
+const getHashTags = require('./getHashTags');
+const checkuser = require('./checkuser');
 
 // Function
 
 module.exports = async function addtweet(userdata) {
 
-  let result = [];
-  let hashtags = ['#test', '#test2'];
+// Récupération des hashtags
+
+const hashtags = await getHashTags(userdata[0].message);
+
+// Initialisation des données du tweet à enregistrer
 
   const email = userdata[0].email.trim();
   const message = userdata[0].message.trim();
   const date = new Date();
   const likes = [];
 
-  console.log(date);
+  console.log(hashtags);
 
-  /*
-  userdata.hashtags.map((item) => {
+let result = await checkuser(email);
 
-    hashtags.push(item);
+  if (result[0].id == '14') { 
 
-  })
+    // Si l'utilisateur existe
 
-  */
+    const datanew = await User.findOne({email: {$regex: new RegExp(email, 'i')}});
 
-  const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
-  
-  function validateEmail(email) {
-    return emailRegex.test(email);
-  }
-  
-  const isValidEmail = validateEmail(email);
-  
-  if (!isValidEmail) {
-  
-    result.push(results[0]);
-    result.push(userdata);
+    const creator = datanew.id;
 
-    return result;
-
-  } else {
-
-    const data = await User.findOne({email: {$regex: new RegExp(email, 'i')}});
-
-    if (data == null) {
-
-      result.push(results[1])
-      result.push(userdata);
-
-      return result;
-
-    } else {
-
-      const creator = data.id;
-
-      const newTweet = new Tweet({
+    const newTweet = new Tweet({
   
         creator : creator,
         message: message,
@@ -75,12 +51,15 @@ module.exports = async function addtweet(userdata) {
         
       });
       
-       const newitem = await newTweet.save().populate('users')
+    const newitem = await newTweet.save();
+    
+    let populateitem = await newitem.populate('creator')
+    
+    console.log(populateitem);
+    
+    if (populateitem) {
 
-       if (newitem) {
-
-        
-        let tweetSaved = newitem;
+        let tweetSaved = populateitem;
 
         result.push(results[9]);
         result.push(tweetSaved);
@@ -93,9 +72,15 @@ module.exports = async function addtweet(userdata) {
 
        }
 
-      }
+  } else {
 
-    }
+    // L'utilisateur n'existe pas
+
+    result.push(result[0])
+    return result;
+
+  }
+
   }
     
 

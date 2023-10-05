@@ -54,6 +54,8 @@ return result;
 
 result = await checkuser(userEmail);
 
+// L'utilisateur existe-t-il ?
+
 if (result[0].id == '14') {
 
     const dataTweet = await Tweet.find().populate('creator');
