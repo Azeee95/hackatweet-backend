@@ -45,25 +45,24 @@ router.post('/add', async (req, res) => {
     });
   
 
-    
+    router.put('/like/:tweetuid', async (req, res) => {
 
-/*
-router.post('/signin', async (req, res) => {
+        const tweetuid = req.params.tweetuid;
+        const useruid = req.body.useruid;
 
-  const credentials = [{
-  
-    email : req.body.email,
-    password: req.body.password,
-  
-  }]
+        const data = await Tweet.findOne({tweetuid: tweetuid}).populate('creator');
 
-  const result = await signin(credentials);
+        const updatedData = await Tweet.updateOne(
+          { 'tweetuid' : tweetuid},
+          {$push:{"likes": useruid}})
 
-  res.json(result);
-  
-})
+        const data2 = await Tweet.findOne({tweetuid: tweetuid}).populate('creator');
 
-*/
-
+        const tweetDisplay = {creator: data2.creator.firstname, token: data2.creator.token, useruid: data2.creator.useruid, tweetuid: data2.tweetuid, message: data2.message, date: data2.date, likes: data2.likes, hashtags: data2.hashtags}
+        
+        res.json(tweetDisplay);
+        
+        });
+      
 
 module.exports = router;

@@ -28,6 +28,7 @@ const hashtags = await getHashTags(userdata[0].message);
   const message = userdata[0].message.trim();
   const date = new Date();
   const likes = [];
+  const tweetuid = Math.floor(Math.random() * 90000) + 10000;
 
   // Vérification de l'existence de l'utilisateur
 
@@ -48,6 +49,7 @@ const hashtags = await getHashTags(userdata[0].message);
         date: date,
         hashtags: hashtags,
         likes: likes,
+        tweetuid: tweetuid
         
       });
       
@@ -57,7 +59,7 @@ const hashtags = await getHashTags(userdata[0].message);
     
     if (populateitem) {
 
-        let tweetSaved = {creator: populateitem.creator.firstname, token: populateitem.creator.token, message: populateitem.message, date: populateitem.date, likes: populateitem.likes, hashtags: populateitem.hashtags}
+        let tweetSaved = {creator: populateitem.creator.firstname, token: populateitem.creator.token, tweetuid: populateitem.tweetuid, message: populateitem.message, date: populateitem.date, likes: populateitem.likes, hashtags: populateitem.hashtags}
 
         result.push(results[9]);
         result.push(tweetSaved);

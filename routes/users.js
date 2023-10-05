@@ -32,7 +32,7 @@ router.get('/', function(req, res, next) {
 
     data.map((item) => {
 
-      userDisplay.push({email: item.email, firstname: item.firstname, token: item.token, })
+      userDisplay.push({email: item.email, firstname: item.firstname, token: item.token, useruid: item.useruid })
 
     })
 

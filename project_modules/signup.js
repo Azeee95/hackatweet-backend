@@ -22,6 +22,7 @@ module.exports = async function signup(userdata) {
   const hash = bcrypt.hashSync(password, 10)
   const token = uid2(32);
   const firstname = userdata[0].firstname.trim();
+  const useruid = Math.floor(Math.random() * 90000) + 10000;
 
   const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
   
@@ -53,6 +54,7 @@ module.exports = async function signup(userdata) {
         password: hash,
         token: token,
         firstname: firstname,
+        useruid: useruid
         
       });
       
@@ -60,7 +62,7 @@ module.exports = async function signup(userdata) {
 
        if (newitem) {
 
-        let userSignedIn = {firstname: newitem.firstname, email: newitem.email, token: newitem.token}
+        let userSignedIn = {firstname: newitem.firstname, email: newitem.email, token: newitem.token, useruid: newitem.useruid}
 
         result.push(results[6]);
         result.push(userSignedIn);

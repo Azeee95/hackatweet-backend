@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const tweetSchema = mongoose.Schema({
     
     creator: { type: mongoose.Schema.Types.ObjectId, ref: 'users' },
+    tweetuid: Number,
     message: String,
     hashtags: [String], 
     likes : [String],

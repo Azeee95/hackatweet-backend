@@ -41,7 +41,7 @@ if (data == null) {
 
     data.map((item) => {
 
-    result.push({creator: item.creator.firstname, token: item.creator.token, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
+    result.push({creator: item.creator.firstname, token: item.creator.token, tweetuid: item.tweetuid, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
 
     })
 
@@ -71,7 +71,7 @@ if (result[0].id == '14') {
 
             // Ajout des tweets de l'utilisateur dans result
 
-            result.push({creator: item.creator.firstname, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
+            result.push({creator: item.creator.firstname, token: item.creator.token, tweetuid: item.tweetuid, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
         
         } 
 

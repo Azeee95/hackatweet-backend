@@ -54,7 +54,7 @@ if (!isValidEmail) {
 
       } else {
 
-        let userSignedIn = {firstname: data.firstname, email: data.email, token: data.token}
+        let userSignedIn = {firstname: data.firstname, email: data.email, token: data.token, useruid: data.useruid }
 
         result.push(results[3]);
         result.push(userSignedIn);

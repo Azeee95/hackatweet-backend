@@ -61,7 +61,7 @@ module.exports = async function checkuser(userEmail){
 
         // La recherche a renvoyé un résultat. L'utilisateur existe.
 
-        const user = {firstname : data.firstname, email: data.email, token: data.token}
+        const user = {firstname : data.firstname, email: data.email, token: data.token, useruid: data.useruid}
 
         result.push(results[14]);
         result.push(user);
