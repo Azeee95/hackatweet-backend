@@ -19,13 +19,13 @@ const checkuser = require('./checkuser');
 module.exports = async function findtweet(param){
 
 // Récupération de l'email dans l'objet en paramètre
-let userEmail = param.userEmail;
+// let userEmail = param.userEmail;
 
 let result = [];
 
 // Si l'appel se fait sur tous les tweets sans paramètre email
 
-if (userEmail == null) {
+if (param == null) {
 
 const data = await Tweet.find().populate('creator');
 
@@ -49,6 +49,8 @@ return result;
 } else {
 
 // Si un paramètre est renseigné pendant l'appel : le mail de l'utilisateur. Alors la recherche se fera avec l'email de l'utilisateur
+
+let userEmail = param.userEmail;
 
 // Vérification de l'existance de l'utilisateur dans la base
 

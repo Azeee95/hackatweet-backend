@@ -26,9 +26,17 @@ let inputText = "Lorem Ipsum is simply dummy text of the printing and typesettin
 
 router.get('/', function(req, res, next) {
 
+  let userDisplay = [];
+
   User.find().then((data) => {
 
-    res.json(data);
+    data.map((item) => {
+
+      userDisplay.push({email: item.email, firstname: item.firstname, token: item.token, })
+
+    })
+
+    res.json(userDisplay);
 
   })
 
