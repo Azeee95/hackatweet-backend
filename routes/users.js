@@ -58,31 +58,3 @@ router.post('/signup', async (req, res) => {
 
 
 module.exports = router;
-
-
-/*
-
-
-
-const newUser = new User({
-
-  username: 'Kodzo',
-  password : 'test',
-  email: 'kodzo@kovalys.com'
-
-})
-
-newUser.save().then(() => {
-
-  console.log('New User saved')
-
-  User.find().then((data) => {
-
-  console.log(data);
-  
-  }) 
-
-}) 
-
-
-*/

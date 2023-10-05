@@ -15,7 +15,7 @@ const results = require('./results.json');
 
 module.exports = async function signup(userdata) {
 
-  let result = results[4];
+  let result = [];
 
   const email = userdata[0].email.trim();
   const password = userdata[0].password.trim();
@@ -33,7 +33,7 @@ module.exports = async function signup(userdata) {
   
   if (!isValidEmail) {
   
-    result = results[0]
+    result.push(results[0]);
     return result;
 
   } else {
@@ -42,7 +42,7 @@ module.exports = async function signup(userdata) {
 
     if (data !== null) {
 
-      result = results[5]
+      result.push(results[5])
       return result;
 
     } else {
@@ -60,12 +60,15 @@ module.exports = async function signup(userdata) {
 
        if (newitem) {
 
-        result = results[6]
+        let userSignedIn = {firstname: newitem.firstname, email: newitem.email, token: newitem.token}
+
+        result.push(results[6]);
+        result.push(userSignedIn);
         return result;
 
        } else {
 
-        result = results[7]
+        result.push(results[7])
         return result;
 
        }
