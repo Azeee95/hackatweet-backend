@@ -29,9 +29,9 @@ const hashtags = await getHashTags(userdata[0].message);
   const date = new Date();
   const likes = [];
 
-  console.log(hashtags);
+  // Vérification de l'existence de l'utilisateur
 
-let result = await checkuser(email);
+  let result = await checkuser(email);
 
   if (result[0].id == '14') { 
 
@@ -55,11 +55,9 @@ let result = await checkuser(email);
     
     let populateitem = await newitem.populate('creator')
     
-    console.log(populateitem);
-    
     if (populateitem) {
 
-        let tweetSaved = populateitem;
+        let tweetSaved = {creator: populateitem.creator.firstname, token: populateitem.creator.token, message: populateitem.message, date: populateitem.date, likes: populateitem.likes, hashtags: populateitem.hashtags}
 
         result.push(results[9]);
         result.push(tweetSaved);
