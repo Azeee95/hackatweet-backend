@@ -1,0 +1,11 @@
+[
+    { "id": 0, "Message" : "Format email invalide", "type": "error"},
+    { "id": 1, "Message" : "Utilisateur inconnu", "type": "error"},
+    { "id": 2, "Message" : "Mot de passe erroné", "type": "error"},
+    { "id": 3, "Message" : "Accès autorisé", "type": "success"},
+    { "id": 4, "Message" : "Erreur inconnue. Contactez le support", "type": "error"},
+    { "id": 5, "Message" : "L'utilisateur existe déjà", "type": "error"},
+    { "id": 6, "Message" : "Inscription réussie", "type": "success"},
+    { "id": 7, "Message" : "Problème d'ajout de l'utilisateur dans la base de données", "type": "error"}
+  
+  ]
