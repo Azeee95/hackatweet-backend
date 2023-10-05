@@ -18,12 +18,9 @@ const checkuser = require('./checkuser');
 
 module.exports = async function findtweet(param){
 
-// Récupération de l'email dans l'objet en paramètre
-// let userEmail = param.userEmail;
-
 let result = [];
 
-// Si l'appel se fait sur tous les tweets sans paramètre email
+// Si l'appel se fait sans paramètre email
 
 if (param == null) {
 
@@ -31,16 +28,22 @@ const data = await Tweet.find().populate('creator');
 
 if (data == null) {
 
-    // aucun tweet dans la base
+    // Aucun tweet dans la base
     result.push(results[8]);
 
 } else {
 
-    // Affichage de l'ensemble des tweet de la base
+    // Récupération de l'ensemble des tweet de la base
 
     result.push(results[12]);
 
-    result.push(data); // Ajout des tweets dans le tableau result
+    // Ajout des tweets dans le tableau result sans les informations sensibles
+
+    data.map((item) => {
+
+    result.push({creator: item.creator.firstname, token: item.creator.token, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
+
+    })
 
 }
 
