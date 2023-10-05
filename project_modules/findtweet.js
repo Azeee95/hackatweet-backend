@@ -41,7 +41,7 @@ if (data == null) {
 
     data.map((item) => {
 
-    result.push({creator: item.creator.firstname, token: item.creator.token, tweetuid: item.tweetuid, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
+    result.push({creator: item.creator.firstname, token: item.creator.token, useruid: item.creator.useruid, tweetuid: item.tweetuid, message: item.message, date: item.date, likes: item.likes, hashtags: item.hashtags});
 
     })
 

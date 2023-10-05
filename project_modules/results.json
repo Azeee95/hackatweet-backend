@@ -14,6 +14,8 @@
     { "id": 12, "Message" : "Tweets trouvés", "type": "information"},
     { "id": 13, "Message" : "Le format de l'email est invalide", "type": "error"},
     { "id": 14, "Message" : "L'utilisateur existe", "type": "information"},
-    { "id": 15, "Message" : "L'utilisateur n'existe pas", "type": "information"}
+    { "id": 15, "Message" : "L'utilisateur n'existe pas", "type": "information"},
+    { "id": 16, "Message" : "Ce tweet n'existe pas ou a été supprimé", "type": "error"},
+    { "id": 17, "Message" : "Le tweet a bien été supprimé", "type": "information"}
 
   ]

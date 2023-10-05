@@ -33,7 +33,7 @@ const isValidEmail = validateEmail(email);
 
 if (!isValidEmail) {
 
-  result.push(results[0])
+  result.push(results[0]) 
   return result;
 
 } else {

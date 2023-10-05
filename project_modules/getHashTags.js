@@ -9,7 +9,7 @@ module.exports = async function getHashTags(inputText) {
     var match;
 
     while ((match = regex.exec(inputText))) {
-        matches.push(match[1]);
+        matches.push(match[1].toLowerCase());
     }
 
     return matches;
