@@ -7,15 +7,15 @@
     { "id": 5, "Message" : "L'utilisateur existe déjà", "type": "error"},
     { "id": 6, "Message" : "Inscription réussie", "type": "success"},
     { "id": 7, "Message" : "Problème d'ajout de l'utilisateur dans la base de données", "type": "error"},
-    { "id": 8, "Message" : "Il n'y a aucun tweet pour le moment", "type": "information"},
-    { "id": 9, "Message" : "Tweet publié", "type": "information"},
-    { "id": 10, "Message" : "Vous n'avez aucun tweet pour le moment", "type": "information"},
+    { "id": 8, "Message" : "Il n'y a aucun tweet pour le moment", "type": "success"},
+    { "id": 9, "Message" : "Tweet publié", "type": "success"},
+    { "id": 10, "Message" : "Vous n'avez aucun tweet pour le moment", "type": "success"},
     { "id": 11, "Message" : "Problème d'ajout du tweet dans la base de données", "type": "error"},
-    { "id": 12, "Message" : "Tweets trouvés", "type": "information"},
+    { "id": 12, "Message" : "Tweets trouvés", "type": "success"},
     { "id": 13, "Message" : "Le format de l'email est invalide", "type": "error"},
-    { "id": 14, "Message" : "L'utilisateur existe", "type": "information"},
-    { "id": 15, "Message" : "L'utilisateur n'existe pas", "type": "information"},
+    { "id": 14, "Message" : "L'utilisateur existe déjà", "type": "error"},
+    { "id": 15, "Message" : "L'utilisateur n'existe pas", "type": "error"},
     { "id": 16, "Message" : "Ce tweet n'existe pas ou a été supprimé", "type": "error"},
-    { "id": 17, "Message" : "Le tweet a bien été supprimé", "type": "information"}
+    { "id": 17, "Message" : "Le tweet a bien été supprimé", "type": "success"}
 
   ]
