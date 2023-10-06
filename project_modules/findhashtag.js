@@ -48,4 +48,6 @@ const dataTweet = await Tweet.find().populate('creator');
 
 return result;
 
+console.log(result);
+
 }

@@ -13,6 +13,7 @@ const liketweet = require('../project_modules/liketweet');
 const deletetweet = require('../project_modules/deletetweet');
 const findthashtag = require('../project_modules/findhashtag');
 const findtweetuseruid = require('../project_modules/findtweetuseruid');
+const findtweetfilterhashtag = require('../project_modules/findtweetfilterhashtag');
 
 /* Récupérer l'ensemble des tweets dans la base */
 
@@ -45,7 +46,6 @@ router.get('/1/:useruid', async function(req, res, next) {
 
 });
 
-
 // Rechercher l'ensemble des tweets qui ont un hashtag précis
 
 router.get('/2/:hashtag', async function(req, res, next) {
@@ -55,6 +55,18 @@ router.get('/2/:hashtag', async function(req, res, next) {
   res.json(result);
 
 });
+
+// Rechercher l'ensemble des tweets triés par hashtag
+
+router.get('/hashtags/all', async function(req, res, next) {
+
+  const result = await findtweetfilterhashtag();
+
+  res.json(result);
+
+});
+
+
 
 // Ajouter un nouveau tweet dans la base
 
