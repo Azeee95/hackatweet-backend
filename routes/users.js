@@ -22,7 +22,7 @@ let inputText = "Lorem Ipsum is simply dummy text of the printing and typesettin
 //- 
 
 
-/* GET users listing. */
+/* Lister tous les utilisateurs de la base */
 
 router.get('/', function(req, res, next) {
 
@@ -42,6 +42,8 @@ router.get('/', function(req, res, next) {
 
 });
 
+// Connecter un utilisateur avec son adresse mail et son mot de passe 
+
 router.post('/signin', async (req, res) => {
 
   const credentials = [{
@@ -56,6 +58,8 @@ router.post('/signin', async (req, res) => {
   res.json(result);
   
 })
+
+// Inscrire un nouvel utilisateur avec son email, son passeword et son firstname
 
 router.post('/signup', async (req, res) => {
 
